@@ -16,6 +16,7 @@ h1.order-list-header {
 
 .order-list-sub-heading {
   font-size: 1.5rem;
+  margin-top: 0;
 }
 
 /* Ordering List */
@@ -69,5 +70,5 @@ li i {
 
 /* Dragging */
 .dragging {
-  opacity: 0.5;
+  opacity: 0.6;
 }
