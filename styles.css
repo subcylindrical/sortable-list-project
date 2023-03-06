@@ -1,0 +1,73 @@
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1.order-list-header {
+  font-size: 3rem;
+}
+
+.order-list-sub-heading {
+  font-size: 1.5rem;
+}
+
+/* Ordering List */
+ul.ordering-list {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+li.unit {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0.25rem 0;
+}
+
+li.unit:hover {
+  cursor: pointer;
+}
+
+li .number {
+  height: 100%;
+  width: 50px;
+  font-size: 1.65rem;
+  background: rgb(219, 219, 219);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li .unit-name {
+  font-size: 1.5rem;
+}
+
+li .name-icon-wrapper {
+  border: 1px solid rgba(188, 143, 143, 0.434);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  width: calc(100% - 50px);
+}
+
+li i {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+/* Dragging */
+.dragging {
+  opacity: 0.5;
+}
