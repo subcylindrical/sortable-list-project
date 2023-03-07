@@ -50,6 +50,10 @@ li .number {
   justify-content: center;
 }
 
+.number.correct {
+  background: rgb(124, 220, 129);
+}
+
 li .unit-name {
   font-size: 1.5rem;
 }
