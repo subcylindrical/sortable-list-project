@@ -1,35 +1,35 @@
 const orderingList = document.querySelector('.ordering-list');
 let listUnits = null;
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
 
 // Innitialize DOM
 (() => {
-  let months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-  months = shuffle(months);
-  months.forEach((month) => {
+  const randomMonths = [...months];
+  shuffle(randomMonths);
+  randomMonths.forEach((month) => {
     const monthEle = document.createElement('li');
     monthEle.classList = 'unit';
     monthEle.draggable = 'true';
     monthEle.innerHTML = `
-        <span class="number">${months.indexOf(month) + 1}</span>
+        <span class="number">${randomMonths.indexOf(month) + 1}</span>
         <div class="name-icon-wrapper">
           <span class="unit-name">${month}</span>
           <i class="drag">=</i>
         </div>`;
     orderingList.appendChild(monthEle);
-    console.log('appended: ', monthEle);
   });
   listUnits = document.querySelectorAll('.unit');
 })();
@@ -62,6 +62,7 @@ function handleDragOver(e) {
     orderingList.insertBefore(dragging, appendAfter);
   }
   setListNumbers();
+  checkCorrect();
 }
 
 // Locate element to append above
@@ -84,6 +85,29 @@ function getAppendLocation(y) {
       element: null,
     }
   ).element;
+}
+
+// Check if month order is corret
+function checkCorrect() {
+  const currentList = [...orderingList.children];
+  currentList.forEach((current) => {
+    if (
+      months[currentList.indexOf(current)] ===
+      current.lastElementChild.firstElementChild.textContent
+    ) {
+      current.firstElementChild.classList.add('correct');
+      console.log(
+        current.lastElementChild.firstElementChild.textContent,
+        ' is true'
+      );
+    } else {
+      current.firstElementChild.classList.remove('correct');
+      console.log(
+        current.lastElementChild.firstElementChild.textContent,
+        ' is false'
+      );
+    }
+  });
 }
 
 // Shuffle the month array
