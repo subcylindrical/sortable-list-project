@@ -96,16 +96,8 @@ function checkCorrect() {
       current.lastElementChild.firstElementChild.textContent
     ) {
       current.firstElementChild.classList.add('correct');
-      console.log(
-        current.lastElementChild.firstElementChild.textContent,
-        ' is true'
-      );
     } else {
       current.firstElementChild.classList.remove('correct');
-      console.log(
-        current.lastElementChild.firstElementChild.textContent,
-        ' is false'
-      );
     }
   });
 }
